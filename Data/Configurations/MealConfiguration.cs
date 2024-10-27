@@ -11,12 +11,12 @@ public class MealConfiguration : IEntityTypeConfiguration<Meal>
         builder.ToTable("Meals");
 
         builder.HasKey(x => x.Id);
-        
+
         builder.Property(x => x.Id)
             .HasColumnName("meal_id")
             .HasColumnType("BIGINT")
             .ValueGeneratedOnAdd();
-        
+
         builder.Property(x => x.Name)
             .HasColumnName("meal_name")
             .HasColumnType("varchar(100)")

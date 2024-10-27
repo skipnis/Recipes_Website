@@ -8,6 +8,5 @@ public class RecipeIngredient
     public long IngredientId { get; set; }
     public virtual Ingredient? Ingredient { get; set; }
     
-    public int Quantity { get; set; }
-    public string? UnitOfMeasure { get; set; }
+    public string? Quantity { get; set; }
 }

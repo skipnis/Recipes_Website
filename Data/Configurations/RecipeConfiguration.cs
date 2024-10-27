@@ -23,13 +23,22 @@ public class RecipeConfiguration : IEntityTypeConfiguration<Recipe>
            .HasMaxLength(100)
            .IsRequired();
        
-       builder.Property(x=>x.MealId)
-           .HasColumnName("meal_id")
+       builder
+           .Property(x=>x.Cuisine)
+           .HasColumnName("recipe_cuisine")
+           .HasColumnType("varchar(20)")
+           .HasMaxLength(20)
+           .IsRequired();
+       
+       builder
+           .Property(x=>x.CategoryId)
+           .HasColumnName("category_id")
            .HasColumnType("BIGINT")
            .IsRequired();
        
-       builder.Property(x=>x.CategoryId)
-           .HasColumnName("category_id")
+       builder
+           .Property(x => x.MealId)
+           .HasColumnName("meal_id")
            .HasColumnType("BIGINT")
            .IsRequired();
     }

@@ -8,7 +8,7 @@ public class RecipeIngredientConfiguration : IEntityTypeConfiguration<RecipeIngr
 {
     public void Configure(EntityTypeBuilder<RecipeIngredient> builder)
     {
-        builder.ToTable("RecipeIngredient", t=>t.HasCheckConstraint("Valid_Quantity", "Quantity > 0"));
+        builder.ToTable("RecipeIngredient");
         
         builder.HasKey(ri => new { ri.RecipeId, ri.IngredientId });
 
@@ -20,13 +20,7 @@ public class RecipeIngredientConfiguration : IEntityTypeConfiguration<RecipeIngr
 
         builder.Property(ri => ri.Quantity)
             .HasColumnName("quantity")
-            .HasColumnType("INT");
-        
-        builder.Property(ri => ri.UnitOfMeasure)
-            .HasColumnName("unit_of_measure")
-            .HasColumnType("varchar(255)")
-            .HasMaxLength(255)
-            .IsRequired();
+            .HasColumnType("varchar(15)");
 
         builder.HasOne(ri => ri.Recipe)
             .WithMany(r => r.RecipeIngredients)

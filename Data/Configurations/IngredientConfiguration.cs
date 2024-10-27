@@ -19,8 +19,8 @@ public class IngredientConfiguration : IEntityTypeConfiguration<Ingredient>
         
         builder.Property(x => x.Name)
             .HasColumnName("ingredient_name")
-            .HasColumnType("varchar(100)")
-            .HasMaxLength(100)
+            .HasColumnType("varchar(25)")
+            .HasMaxLength(25)
             .IsRequired();
     }
 }
