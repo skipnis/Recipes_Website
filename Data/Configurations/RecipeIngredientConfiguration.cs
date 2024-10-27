@@ -17,11 +17,10 @@ public class RecipeIngredientConfiguration : IEntityTypeConfiguration<RecipeIngr
         
         builder.Property(ri => ri.IngredientId)
             .HasColumnName("ingredient_id");
-        
+
         builder.Property(ri => ri.Quantity)
             .HasColumnName("quantity")
-            .HasColumnType("INT")
-            .IsRequired();
+            .HasColumnType("INT");
         
         builder.Property(ri => ri.UnitOfMeasure)
             .HasColumnName("unit_of_measure")
