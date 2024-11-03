@@ -109,3 +109,10 @@
 /Users/kipnisalex/RiderProjects/WebCooking/WebCooking/obj/Debug/net8.0/WebCooking.RazorAssemblyInfo.cache
 /Users/kipnisalex/RiderProjects/WebCooking/WebCooking/obj/Debug/net8.0/WebCooking.RazorAssemblyInfo.cs
 /Users/kipnisalex/RiderProjects/WebCooking/WebCooking/obj/Debug/net8.0/WebCooking.sourcelink.json
+/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/bin/Debug/net8.0/Microsoft.Extensions.Identity.Core.dll
+/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/bin/Debug/net8.0/Microsoft.Extensions.Identity.Stores.dll
+/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
+/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/obj/Debug/net8.0/scopedcss/projectbundle/WebCooking.bundle.scp.css

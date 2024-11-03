@@ -1,31 +1,28 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using WebCooking.Data.Configurations;
 using WebCooking.Models;
 
 namespace WebCooking.Data;
 
-public class ApplicationContext : DbContext
+public class ApplicationContext : IdentityDbContext<User>
 {
     public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
     {
-
     }
-
-    DbSet<Category> Categories { get; set; }
-    DbSet<Ingredient> Ingredients { get; set; }
-    DbSet<Meal> Meals { get; set; }
-    DbSet<Recipe> Recipes { get; set; }
-    DbSet<RecipeIngredient> RecipeIngredients { get; set; }
-    public DbSet<User> Users { get; set; }
-
+    
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Ingredient> Ingredients { get; set; }
+    public DbSet<Instruction> Instructions { get; set; }
+    public DbSet<Meal> Meals { get; set; }
+    public DbSet<Recipe> Recipes { get; set; }
+    public DbSet<RecipeIngredient> RecipeIngredients { get; set; }
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-        modelBuilder.ApplyConfiguration(new IngredientConfiguration());
-        modelBuilder.ApplyConfiguration(new MealConfiguration());
-        modelBuilder.ApplyConfiguration(new RecipeConfiguration());
-        modelBuilder.ApplyConfiguration(new RecipeIngredientConfiguration());
-        modelBuilder.ApplyConfiguration(new UserConfiguration());
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationContext).Assembly);
     }
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
