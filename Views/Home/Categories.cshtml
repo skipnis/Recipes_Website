@@ -1,0 +1,23 @@
+@model List<WebCooking.Models.Category>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+    <ul>
+        @foreach (var category in Model)
+        {
+            <li>@category.Name</li>
+        }
+    </ul>
+</div>
+</body>
+</html>
