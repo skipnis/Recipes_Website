@@ -6,8 +6,9 @@
     <title>@ViewData["Title"] - RecipeWebsite</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <script src="~/js/site.js"></script>
 </head>
-<body class="overflow-hidden">
+<body>
 <div class="d-flex flex-column vh-100">
     <header class="flex-shrink-0"> <!-- Заголовок, который не будет сжиматься -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom box-shadow mb-3">
@@ -23,10 +24,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Recipes">Recipes</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Recipe" asp-action="Recipes">Recipes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Categories">Categories</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Categories">Categories</a>
                         </li>
                     </ul>
                 </div>

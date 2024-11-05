@@ -6,8 +6,8 @@ namespace WebCooking.Repositories.Implementations;
 
 public abstract class RepositoryImpl<T> : IRepository<T> where T : class
 {
-    private readonly ApplicationContext _context;
-    private readonly DbSet<T> _dbSet;
+    protected readonly ApplicationContext _context;
+    protected readonly DbSet<T> _dbSet;
 
     protected RepositoryImpl(ApplicationContext context)
     {

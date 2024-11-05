@@ -276,6 +276,11 @@ namespace WebCooking.Migrations
                         .HasColumnType("Text")
                         .HasColumnName("recipe_description");
 
+                    b.Property<string>("ImagePath")
+                        .HasMaxLength(255)
+                        .HasColumnType("VARCHAR(255)")
+                        .HasColumnName("recipe_image_path");
+
                     b.Property<long>("MealId")
                         .HasColumnType("BIGINT")
                         .HasColumnName("meal_id");

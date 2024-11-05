@@ -19,8 +19,17 @@ builder.Services.AddIdentity<User, IdentityRole>()
 
 builder.Services.AddScoped<IRepository<Category>, CategoryRepositoryImpl>();
 builder.Services.AddScoped<ICategoryService, CategoryServiceImpl>();
+builder.Services.AddScoped<IRepository<Recipe>, RecipeRepositoryImpl>();
+builder.Services.AddScoped<IRecipeRepository, RecipeRepositoryImpl>();
+builder.Services.AddScoped<IRecipeService, RecipeServiceImpl>();
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+    });
 
 var app = builder.Build();
 

@@ -8,11 +8,9 @@ namespace WebCooking.Controllers;
 [Controller]
 public class HomeController : Controller
 {
-    private readonly ICategoryService _categoryService;
-    
-    public HomeController(ICategoryService categoryService)
+    public HomeController()
     {
-        _categoryService = categoryService;
+        
     }
 
     public IActionResult Home()
@@ -24,20 +22,7 @@ public class HomeController : Controller
     {
         return View();
     }
-
-    [HttpGet("/recipes")]
-    public IActionResult Recipes()
-    {
-        return View();
-    }
     
-    [HttpGet]
-    public async Task<IActionResult> Categories()
-    {
-        var categories = await _categoryService.GetAllAsync();
-        return View(categories.ToList());
-    }
-
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

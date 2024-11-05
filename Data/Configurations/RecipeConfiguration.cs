@@ -23,6 +23,12 @@ public class RecipeConfiguration : IEntityTypeConfiguration<Recipe>
             .HasMaxLength(255)
             .IsRequired();
         
+        builder.Property(r => r.ImagePath)
+            .HasColumnName("recipe_image_path")
+            .HasColumnType("VARCHAR(255)")
+            .HasMaxLength(255)
+            .IsRequired(false);
+        
         builder.Property(r => r.CategoryId)
             .HasColumnName("category_id")
             .HasColumnType("BIGINT")

@@ -13,6 +13,78 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/istockphoto-1130745174-612x612.jpg",
+      "PackagePath": "staticwebassets/images/recipes/istockphoto-1130745174-612x612.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/istockphoto-1159667383-612x612.jpg",
+      "PackagePath": "staticwebassets/images/recipes/istockphoto-1159667383-612x612.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-alesiakozik-6072374.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-alesiakozik-6072374.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-capturedbyaugustine-13175976.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-capturedbyaugustine-13175976.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-czapp-arpad-3647289-15867364.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-czapp-arpad-3647289-15867364.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-dana-tentis-118658-725997.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-dana-tentis-118658-725997.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-duygukamar-11334826.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-duygukamar-11334826.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-janetrangdoan-1105166.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-janetrangdoan-1105166.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-klaus-nielsen-6294359.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-klaus-nielsen-6294359.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-matvalina-17379686.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-matvalina-17379686.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-nadin-sh-78971847-19409027.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-nadin-sh-78971847-19409027.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-nadin-sh-78971847-24038047.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-nadin-sh-78971847-24038047.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-nano-erdozain-120534369-29168409.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-nano-erdozain-120534369-29168409.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-valeriya-10875228.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-valeriya-10875228.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-valeriya-1307659.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-valeriya-1307659.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-valeriya-16204683.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-valeriya-16204683.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-vince-19328844.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-vince-19328844.jpg"
+    },
+    {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/pexels-vitaliy-haiduk-326720599-17308537.jpg",
+      "PackagePath": "staticwebassets/images/recipes/pexels-vitaliy-haiduk-326720599-17308537.jpg"
+    },
+    {
       "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },

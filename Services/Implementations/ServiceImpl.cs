@@ -5,7 +5,7 @@ namespace WebCooking.Services.Implementations;
 
 public class ServiceImpl<T> : IService<T> where T : class
 {
-    private readonly IRepository<T> _repository;
+    protected readonly IRepository<T> _repository;
 
     protected ServiceImpl(IRepository<T> repository)
     {
