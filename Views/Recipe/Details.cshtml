@@ -1,0 +1,56 @@
+@using WebCooking.Models.ViewModels
+@model WebCooking.Models.RecipeDetails
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="container mt-4">
+        <h1 class="text-center">@Model.Recipe?.Name</h1>
+        <div class="col-6 mx-auto">
+            <p class="text-center">@Model.Recipe?.Description</p>
+        </div>
+
+        <div class="container">
+            <h3>Ингредиенты</h3>
+            <table class="table">
+                <tbody>
+                @foreach (var recipeIngredient in Model.RecipeIngredients)
+                {
+                    var ingredient = Model.Ingredients.FirstOrDefault(i => i.Id == recipeIngredient.IngredientId);
+
+                    if (ingredient != null)
+                    {
+                        <tr>
+                            <td>@ingredient.Name</td>
+                            <td>@recipeIngredient.Quantity @recipeIngredient.Unit</td>
+                        </tr>
+                    }
+                }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="container">
+            <h3>Инструкция приготовления </h3>
+            <ol class="list-group-numbered ps-0">
+                @if (Model.Instructions != null && Model.Instructions.Any())
+                {
+                foreach (var instruction in Model.Instructions)
+                {
+                <li class="list-group-item border-0 ps-0">@instruction.Text</li>
+                }
+                }
+                else
+                {
+                <li class="list-group-item">No instructions found.</li>
+                }
+            </ol>
+        </div>
+        <div class="text-center">
+            <a href="@Url.Action("Recipes", "Recipe")" class="btn btn-primary">Назад к рецептам</a>
+        </div>
+    </div>
+</div>
