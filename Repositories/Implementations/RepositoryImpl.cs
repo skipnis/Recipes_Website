@@ -20,7 +20,7 @@ public abstract class RepositoryImpl<T> : IRepository<T> where T : class
         return await _dbSet.ToListAsync();
     }
 
-    public async Task<T> GetByIdAsync(int? id)
+    public virtual async Task<T> GetByIdAsync(long id)
     {
         return await _dbSet.FindAsync(id);
     }
@@ -37,7 +37,7 @@ public abstract class RepositoryImpl<T> : IRepository<T> where T : class
         await _context.SaveChangesAsync();
     }
 
-    public async Task DeleteAsync(int id)
+    public async Task DeleteAsync(long id)
     {
         var entity = await GetByIdAsync(id);
         if (entity != null)

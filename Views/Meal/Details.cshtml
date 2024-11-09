@@ -1,18 +1,17 @@
-@model List<WebCooking.Models.Recipe>
+@model Meal
 
 @{
+    ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
 <div class="d-flex flex-row flex-wrap">
-    @foreach (var recipe in Model)
+    <div class="container d-flex flex-column">
+        <h3 class="text-center">@Model.Name</h3>
+        <p class="container col-6 text-center">@Model.Description</p>
+    </div>
+
+    @foreach (var recipe in Model.Recipes)
     {
         <div class="card" style="width: 18rem; margin: 10px;">
             <div class="image-container">
@@ -25,5 +24,3 @@
         </div>
     }
 </div>
-</body>
-</html>

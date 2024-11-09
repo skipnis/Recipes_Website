@@ -1,0 +1,28 @@
+@model User
+
+<div class="container mt-5">
+    <h2>Редактировать профиль</h2>
+
+    <form method="post" asp-action="EditProfile">
+        <div class="form-group">
+            <label for="FirstName">Имя</label>
+            <input type="text" id="FirstName" name="FirstName" class="form-control" value="@Model.FirstName" required />
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="LastName">Фамилия</label>
+            <input type="text" id="LastName" name="LastName" class="form-control" value="@Model.LastName" required />
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="Email">Email</label>
+            <input type="email" id="Email" name="Email" class="form-control" value="@Model.Email" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Сохранить изменения</button>
+    </form>
+
+    <div class="mt-3">
+        <a href="@Url.Action("Profile", "Account")" class="btn btn-secondary">Отменить</a>
+    </div>
+</div>

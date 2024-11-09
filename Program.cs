@@ -17,11 +17,25 @@ builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationContext>()
     .AddDefaultTokenProviders();
 
+builder.Services.AddAuthentication()
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.LogoutPath = "/Account/Logout";
+    });
+builder.Services.AddAuthorization();
+
 builder.Services.AddScoped<IRepository<Category>, CategoryRepositoryImpl>();
 builder.Services.AddScoped<ICategoryService, CategoryServiceImpl>();
+
 builder.Services.AddScoped<IRepository<Recipe>, RecipeRepositoryImpl>();
 builder.Services.AddScoped<IRecipeRepository, RecipeRepositoryImpl>();
 builder.Services.AddScoped<IRecipeService, RecipeServiceImpl>();
+
+builder.Services.AddScoped<IRepository<Meal>, MealRepositoryImpl>();
+builder.Services.AddScoped<IMealService, MealServiceImpl>();
+
+
 
 builder.Services.AddControllersWithViews();
 

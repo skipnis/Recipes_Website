@@ -7,5 +7,4 @@ public interface IRecipeRepository : IRepository<Recipe>
 {
     Task<IEnumerable<Recipe>> GetByCategoryAsync(int categoryId);
     
-    Task<RecipeDetails> GetRecipeDetails(int id);
 }

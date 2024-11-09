@@ -1,5 +1,4 @@
-@using WebCooking.Models.ViewModels
-@model WebCooking.Models.RecipeDetails
+@model WebCooking.Models.Recipe
 
 @{
     ViewBag.Title = "title";
@@ -7,27 +6,26 @@
 }
 
 <div class="container">
-    <div class="container mt-4">
-        <h1 class="text-center">@Model.Recipe?.Name</h1>
-        <div class="col-6 mx-auto">
-            <p class="text-center">@Model.Recipe?.Description</p>
+    <div class="container d-flex flex-column">
+        <h3 class="text-center">@Model.Name</h3>
+        <div class="container d-flex flex-row">
+            <img class="img-thumbnail" style="max-height: 200px; max-width: 300px" src="@Model.ImagePath" alt="Card image cap"/>
+            <p class="container col-6 text-center ms-3">@Model.Description</p>
         </div>
 
+
+    </div>
+    <div class="container mt-4">
         <div class="container">
             <h3>Ингредиенты</h3>
             <table class="table">
                 <tbody>
                 @foreach (var recipeIngredient in Model.RecipeIngredients)
                 {
-                    var ingredient = Model.Ingredients.FirstOrDefault(i => i.Id == recipeIngredient.IngredientId);
-
-                    if (ingredient != null)
-                    {
-                        <tr>
-                            <td>@ingredient.Name</td>
-                            <td>@recipeIngredient.Quantity @recipeIngredient.Unit</td>
-                        </tr>
-                    }
+                    <tr>
+                        <td>@recipeIngredient.Ingredient.Name</td>
+                        <td>@recipeIngredient.Quantity @recipeIngredient.Unit</td>
+                    </tr>
                 }
                 </tbody>
             </table>
@@ -36,16 +34,16 @@
         <div class="container">
             <h3>Инструкция приготовления </h3>
             <ol class="list-group-numbered ps-0">
-                @if (Model.Instructions != null && Model.Instructions.Any())
+                @if (Model.Instructions != null)
                 {
-                foreach (var instruction in Model.Instructions)
-                {
-                <li class="list-group-item border-0 ps-0">@instruction.Text</li>
-                }
+                    foreach (var instruction in Model.Instructions)
+                    {
+                        <li class="list-group-item border-0 ps-0">@instruction.Text</li>
+                    }
                 }
                 else
                 {
-                <li class="list-group-item">No instructions found.</li>
+                    <li class="list-group-item">No instructions found.</li>
                 }
             </ol>
         </div>

@@ -6,6 +6,4 @@ namespace WebCooking.Services.Interfaces;
 public interface IRecipeService : IService<Recipe>
 {
     Task<IEnumerable<Recipe>> GetByCategoryAsync(int categoryId);
-    
-    Task<RecipeDetails> GetRecipeDetails(int recipeId);
 }

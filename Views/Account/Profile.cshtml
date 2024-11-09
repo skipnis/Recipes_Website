@@ -1,0 +1,35 @@
+@using Microsoft.AspNetCore.Identity
+@model WebCooking.Models.User
+
+@{
+    ViewData["Title"] = "Личный кабинет";
+}
+
+<div class="container mt-5">
+    <h2>Личный кабинет</h2>
+    @if (TempData["ProfileUpdateSuccess"] != null)
+    {
+    <div class="alert alert-success">
+        @TempData["ProfileUpdateSuccess"]
+    </div>
+    }
+    @if (TempData["ProfileUpdateError"] != null)
+    {
+    <div class="alert alert-danger">
+        @TempData["ProfileUpdateError"]
+    </div>
+    }
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Добро пожаловать, @Model.FirstName @Model.LastName</h5>
+            <p class="card-text">Email: @Model.Email</p>
+        </div>
+    </div>
+    <a href="@Url.Action("EditProfile", "Account")" class="btn btn-primary mt-3">Редактировать информацию</a>
+    <form method="post" asp-action="Logout" class="mt-4">
+        <button type="submit" class="btn btn-danger">Выйти</button>
+    </form>
+    <form method="post" asp-action="Logout" class="mt-4">
+        <button type="submit" class="btn btn-success">Создать рецепт</button>
+    </form>
+</div>

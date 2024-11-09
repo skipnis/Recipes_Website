@@ -18,9 +18,4 @@ public class RecipeServiceImpl : ServiceImpl<Recipe>, IRecipeService
     {
         return await _recipeRepository.GetByCategoryAsync(categoryId);
     }
-
-    public Task<RecipeDetails> GetRecipeDetails(int recipeId)
-    {
-       return _recipeRepository.GetRecipeDetails(recipeId);
-    }
 }

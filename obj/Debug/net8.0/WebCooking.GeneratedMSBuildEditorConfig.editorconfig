@@ -18,8 +18,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/kipnisalex/RiderProjects/WebCooking/WebCooking
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/Views/Account/EditProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9FZGl0UHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/Views/Account/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Qcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/Views/Account/Register.cshtml]
@@ -30,6 +38,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvQ2F0ZWdvcmllcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/Views/Category/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/Views/Home/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Ib21lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -38,16 +50,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/Views/Meal/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWVhbC9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/Views/Meal/Meals.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWVhbC9NZWFscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/Views/Recipe/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVjaXBlL0RldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/Views/Recipe/Recipes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVjaXBlL1JlY2lwZXMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/Views/Recipe/RecipesByCategory.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVjaXBlL1JlY2lwZXNCeUNhdGVnb3J5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/Views/Shared/Error.cshtml]
