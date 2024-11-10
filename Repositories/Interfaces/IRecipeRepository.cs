@@ -6,5 +6,4 @@ namespace WebCooking.Repositories.Interfaces;
 public interface IRecipeRepository : IRepository<Recipe>
 {
     Task<IEnumerable<Recipe>> GetByCategoryAsync(int categoryId);
-    
 }

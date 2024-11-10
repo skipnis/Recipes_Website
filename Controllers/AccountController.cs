@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebCooking.Models;
@@ -27,9 +28,17 @@ public class AccountController : Controller
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user != null)
             {
-                var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
+                var result = await _signInManager.PasswordSignInAsync(user, model.Password, false, false);
+                
                 if (result.Succeeded)
                 {
+                    var authProperties = new AuthenticationProperties
+                    {
+                        IsPersistent = model.RememberMe, // Использует значение RememberMe из модели
+                        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30) // Время жизни cookies
+                    };
+                    await _signInManager.SignInAsync(user, authProperties);
+
                     return RedirectToAction("Home", "Home");
                 }
                 else
@@ -59,6 +68,8 @@ public class AccountController : Controller
 
             if (result.Succeeded)
             {
+                await _userManager.AddToRoleAsync(user, "User");
+                
                 await _signInManager.SignInAsync(user, isPersistent: false);
                 return RedirectToAction("Home", "Home");
             }
@@ -108,11 +119,11 @@ public class AccountController : Controller
         }
         return View("Profile", model); 
     }
-
-
+    
     public async Task<IActionResult> Logout()
     {
         await _signInManager.SignOutAsync();
+        Response.Cookies.Delete(".AspNetCore.Cookies");
         return RedirectToAction("Home", "Home");
     }
 }

@@ -1,0 +1,36 @@
+@model WebCooking.Models.ViewModels.UserRolesViewModel
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>@Model.User.UserName</h2>
+
+<h3>Roles</h3>
+<ul>
+    @foreach (var role in Model.Roles)
+    {
+    <li>@role</li>
+    }
+</ul>
+
+<h3>Add Role</h3>
+<form method="post" action="@Url.Action("AddRole", "User")">
+    <input type="hidden" name="userId" value="@Model.User.Id" />
+    <input type="text" name="roleName" placeholder="Role Name" required />
+    <button type="submit">Add Role</button>
+</form>
+
+<h3>Remove Role</h3>
+<form method="post" action="@Url.Action("RemoveRole", "User")">
+    <input type="hidden" name="userId" value="@Model.User.Id" />
+    <input type="text" name="roleName" placeholder="Role Name" required />
+    <button type="submit">Remove Role</button>
+</form>
+
+@if (TempData["Error"] != null)
+{
+<div class="error">
+    @TempData["Error"]
+</div>
+}

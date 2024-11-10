@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebCooking.Models;
 using WebCooking.Models.ViewModels;
 using WebCooking.Services.Interfaces;
 
@@ -22,12 +23,7 @@ public class RecipeController : Controller
     
     public async Task<IActionResult> Details(int recipeId)
     {
-        /*var recipeDetails = await _recipeService.GetRecipeDetails(recipeId);
-        return  View(recipeDetails);*/
-        
         var recipe = await _recipeService.GetByIdAsync(recipeId);
         return View(recipe);
     }
-    
-    
 }

@@ -35,6 +35,12 @@
                     </ul>
                     @if (User.Identity?.IsAuthenticated ?? false)
                     {
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <div class="ms-auto">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="User"  asp-action="Index">Management Dashboard</a>
+                            </div>
+                        }
                         <div class="ms-auto">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Profile">Мой профиль</a>
                         </div>
@@ -45,7 +51,6 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Войти/зарегистрироваться</a>
                         </div>
                     }
-                    
                 </div>
             </div>
         </nav>

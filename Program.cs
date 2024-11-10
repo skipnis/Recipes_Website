@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebCooking.Data;
@@ -17,13 +18,21 @@ builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationContext>()
     .AddDefaultTokenProviders();
 
-builder.Services.AddAuthentication()
+builder.Services.AddScoped<RoleSeeder>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
         options.LoginPath = "/Account/Login";
         options.LogoutPath = "/Account/Logout";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+        options.SlidingExpiration = true;
     });
-builder.Services.AddAuthorization();
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
+});
 
 builder.Services.AddScoped<IRepository<Category>, CategoryRepositoryImpl>();
 builder.Services.AddScoped<ICategoryService, CategoryServiceImpl>();
@@ -35,7 +44,9 @@ builder.Services.AddScoped<IRecipeService, RecipeServiceImpl>();
 builder.Services.AddScoped<IRepository<Meal>, MealRepositoryImpl>();
 builder.Services.AddScoped<IMealService, MealServiceImpl>();
 
-
+builder.Services.AddScoped<IRepository<User>, UserRepositoryImpl>();
+builder.Services.AddScoped<IUserRepository, UserRepositoryImpl>();
+builder.Services.AddScoped<IUserService, UserServiceImpl>();
 
 builder.Services.AddControllersWithViews();
 
@@ -47,6 +58,11 @@ builder.Services.AddControllers()
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var roleSeeder = scope.ServiceProvider.GetRequiredService<RoleSeeder>();
+    await roleSeeder.SeedRolesAsync(); // Асинхронный вызов
+}
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -60,11 +76,12 @@ app.UseRouting();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
+
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Home}");
 
-app.Run();
+await app.RunAsync();

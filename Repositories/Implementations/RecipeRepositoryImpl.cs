@@ -20,8 +20,6 @@ public class RecipeRepositoryImpl : RepositoryImpl<Recipe>, IRecipeRepository
             .Include(r => r.Instructions)
             .FirstOrDefaultAsync(r => r.Id == id);
     }
-
-    
     
     public async Task<IEnumerable<Recipe>> GetPagedRecipesAsync(int skip, int take)
     {
