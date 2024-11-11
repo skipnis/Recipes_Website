@@ -116,3 +116,4 @@
 /Users/kipnisalex/RiderProjects/WebCooking/WebCooking/bin/Debug/net8.0/Microsoft.Extensions.Identity.Stores.dll
 /Users/kipnisalex/RiderProjects/WebCooking/WebCooking/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/kipnisalex/RiderProjects/WebCooking/WebCooking/obj/Debug/net8.0/scopedcss/projectbundle/WebCooking.bundle.scp.css
+/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/bin/Debug/net8.0/Newtonsoft.Json.dll

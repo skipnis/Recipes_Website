@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/68079cca-55e0-4aee-b6c7-be2cae79d51d_pexels-n-voitkevich-6120219.jpg",
+      "PackagePath": "staticwebassets/images/recipes/68079cca-55e0-4aee-b6c7-be2cae79d51d_pexels-n-voitkevich-6120219.jpg"
+    },
+    {
       "Id": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/cheesecake_s_yagodami.jpg",
       "PackagePath": "staticwebassets/images/recipes/cheesecake_s_yagodami.jpg"
     },

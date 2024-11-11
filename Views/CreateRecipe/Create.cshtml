@@ -1,0 +1,79 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model WebCooking.Models.ViewModels.RecipeViewModel
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div>
+        <label>Recipe Name:</label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label>Upload Image:</label>
+        <input asp-for="ImageFile" type="file" />
+    </div>
+    <div>
+        <label>Description:</label>
+        <textarea asp-for="Description"></textarea>
+    </div>
+    <div>
+        <label>Category:</label>
+        <select asp-for="CategoryId" asp-items="ViewBag.Categories"></select>
+    </div>
+    <div>
+        <label>Meal Type:</label>
+        <select asp-for="MealId" asp-items="ViewBag.Meals"></select>
+    </div>
+
+    <div>
+        <h3>Instructions</h3>
+        <button type="button" onclick="addInstruction()">Add Instruction</button>
+        <div id="instructions"></div>
+    </div>
+
+    <div>
+        <h3>Ingredients</h3>
+        <button type="button" onclick="addIngredient()">Add Ingredient</button>
+        <div id="ingredients"></div>
+    </div>
+
+    <button type="submit">Create Recipe</button>
+</form>
+
+@section Scripts {
+    <script>
+        // Получаем ингредиенты из ViewBag и преобразуем их в массив
+        const ingredients = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.Ingredients));
+
+        function addInstruction() {
+            const container = document.getElementById("instructions");
+            const index = container.children.length;
+
+            const html = `
+                <div>
+                    <input type="text" name="Instructions[${index}].Text" placeholder="Instruction" />
+                    <input type="number" name="Instructions[${index}].Order" placeholder="Order" />
+                </div>`;
+            container.insertAdjacentHTML("beforeend", html);
+        }
+
+        function addIngredient() {
+            const container = document.getElementById("ingredients");
+            const index = container.children.length;
+
+            // Генерация HTML для выпадающего списка ингредиентов
+            let options = '';
+            ingredients.forEach(function (ingredient) {
+                options += `<option value="${ingredient.Value}">${ingredient.Text}</option>`;
+            });
+
+            const html = `
+                <div>
+                    <select name="RecipeIngredients[${index}].IngredientId">
+                        ${options}
+                    </select>
+                    <input type="number" name="RecipeIngredients[${index}].Quantity" placeholder="Quantity" />
+                    <input type="text" name="RecipeIngredients[${index}].Unit" placeholder="Unit" />
+                </div>`;
+            container.insertAdjacentHTML("beforeend", html);
+        }
+    </script>
+}

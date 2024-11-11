@@ -2,6 +2,11 @@ namespace WebCooking.Models;
 
 public class Recipe : BaseEnity
 {
+    public Recipe()
+    {
+        RecipeIngredients = new List<RecipeIngredient>();
+    }
+    
     public string? ImagePath { get; set; }
     public string? Description { get; set; }
     public long CategoryId { get; set; }
