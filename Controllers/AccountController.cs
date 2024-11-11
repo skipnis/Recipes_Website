@@ -16,6 +16,9 @@ public class AccountController : Controller
         _userManager = userManager;
         _signInManager = signInManager;
     }
+    
+    [HttpGet]
+    public IActionResult AccessDenied() => View();
 
     [HttpGet]
     public IActionResult Login() => View(new LoginViewModel());

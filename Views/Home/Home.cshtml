@@ -27,20 +27,4 @@
             </div>
         </div>
     </div>
-    @if (User.Identity.IsAuthenticated)
-    {
-        @if (User.IsInRole("Admin"))
-        {
-            <h3>Role = admin</h3>
-        }
-        else if (User.IsInRole("User"))
-        {
-            <h3>Role = user</h3>
-        }
-    }
-    else
-    {
-    // Пользователь не авторизован
-    <h3>не авторизован</h3>
-    }
 </div>

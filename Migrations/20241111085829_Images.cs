@@ -5,7 +5,7 @@
 namespace WebCooking.Migrations
 {
     /// <inheritdoc />
-    public partial class ImagePathtoRecipeadded : Migration
+    public partial class Images : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

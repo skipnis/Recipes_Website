@@ -14,15 +14,13 @@ public class UserController : Controller
     {
         _userService = userService;
     }
-
-    // Просмотр всех пользователей
+    
     public async Task<IActionResult> Index()
     {
         var users = await _userService.GetAllUsersAsync();
         return View(users);
     }
-
-    // Просмотр информации о пользователе
+    
     public async Task<IActionResult> Details(string userId)
     {
         var user = await _userService.GetUserByIdAsync(userId);

@@ -12,8 +12,8 @@ using WebCooking.Data;
 namespace WebCooking.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20241103160644_ImagePath to Recipe added")]
-    partial class ImagePathtoRecipeadded
+    [Migration("20241111085829_Images")]
+    partial class Images
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

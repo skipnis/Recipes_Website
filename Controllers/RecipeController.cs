@@ -26,4 +26,10 @@ public class RecipeController : Controller
         var recipe = await _recipeService.GetByIdAsync(recipeId);
         return View(recipe);
     }
+    
+    public IActionResult Create()
+    {
+        return View();
+    }
+    
 }
