@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using WebCooking.Data;
 using WebCooking.Models;
 using WebCooking.Repositories.Interfaces;
@@ -9,5 +10,10 @@ public class IngredientRepositoryImpl : RepositoryImpl<Ingredient>, IIngredientR
     public IngredientRepositoryImpl(ApplicationContext context) : base(context)
     {
         
+    }
+
+    public async Task<Ingredient> GetByNameAsync(string name)
+    {
+        return await _dbSet.FirstOrDefaultAsync(i => i.Name == name);
     }
 }

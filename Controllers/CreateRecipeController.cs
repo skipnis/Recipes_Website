@@ -9,9 +9,9 @@ namespace WebCooking.Controllers;
 public class CreateRecipeController : Controller
 {
     private readonly IRecipeService _recipeService;
-    private readonly ICategoryService _categoryService; // предположим, что у вас есть ICategoryService для категорий
-    private readonly IMealService _mealService;         // предположим, что у вас есть IMealService для типов блюд
-    private readonly IIngredientService _ingredientService; // предположим, что у вас есть IIngredientService для ингредиентов
+    private readonly ICategoryService _categoryService; 
+    private readonly IMealService _mealService;        
+    private readonly IIngredientService _ingredientService;
 
     public CreateRecipeController(IRecipeService recipeService, ICategoryService categoryService, IMealService mealService, IIngredientService ingredientService)
     {
@@ -20,73 +20,86 @@ public class CreateRecipeController : Controller
         _mealService = mealService;
         _ingredientService = ingredientService;
     }
-
-    // GET: Recipe/Create
+    
     public async Task<IActionResult> Create()
     {
         ViewBag.Categories = new SelectList(await _categoryService.GetAllAsync(), "Id", "Name");
         ViewBag.Meals = new SelectList(await _mealService.GetAllAsync(), "Id", "Name");
         ViewBag.Ingredients = new SelectList(await _ingredientService.GetAllAsync(), "Id", "Name");
-        return View();
+        var model = new RecipeViewModel
+        {
+            RecipeIngredients = new List<RecipeIngredientViewModel>()
+        };
+        return View(model);
     }
 
     // POST: Recipe/Create
     [HttpPost]
     public async Task<IActionResult> Create(RecipeViewModel model)
-{
-    if (ModelState.IsValid)
     {
-        string imagePath = null;
-
-        if (model.ImageFile != null)
+        if (ModelState.IsValid)
         {
-            var uploadsFolder = Path.Combine("wwwroot", "images", "recipes");
-            Directory.CreateDirectory(uploadsFolder);
+            string imagePath = null;
 
-            var uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ImageFile.FileName;
-            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            // Сохранение изображения рецепта
+            if (model.ImageFile != null)
             {
-                await model.ImageFile.CopyToAsync(fileStream);
+                var uploadsFolder = Path.Combine("wwwroot", "images", "recipes");
+                Directory.CreateDirectory(uploadsFolder);
+
+                var uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ImageFile.FileName;
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await model.ImageFile.CopyToAsync(fileStream);
+                }
+
+                imagePath = Path.Combine("images", "recipes", uniqueFileName);
             }
 
-            imagePath = Path.Combine("images", "recipes", uniqueFileName);
-        }
-
-        var recipe = new Recipe
-        {
-            Name = model.Name, // Установка названия рецепта
-            ImagePath = imagePath,
-            Description = model.Description,
-            CategoryId = model.CategoryId,
-            MealId = model.MealId,
-            Instructions = model.Instructions.Select(i => new Instruction { Text = i.Text, Order = i.Order }).ToList(),
-            RecipeIngredients = new List<RecipeIngredient>()
-        };
-
-        foreach (var ingredient in model.RecipeIngredients)
-        {
-            var existingIngredient = await _ingredientService.GetByIdAsync(ingredient.IngredientId);
-            if (existingIngredient != null)
+            var recipe = new Recipe
             {
+                Name = model.Name,
+                ImagePath = imagePath,
+                Description = model.Description,
+                CategoryId = model.CategoryId,
+                MealId = model.MealId,
+                Instructions = model.Instructions.Select(i => new Instruction { Text = i.Text, Order = i.Order }).ToList(),
+                RecipeIngredients = new List<RecipeIngredient>()
+            };
+            
+            foreach (var ingredientModel in model.RecipeIngredients)
+            {
+                var existingIngredient = await _ingredientService.GetByNameAsync(ingredientModel.Name);
+
+                long ingredientId;
+                if (existingIngredient != null)
+                {
+                    ingredientId = existingIngredient.Id;
+                }
+                else
+                {
+                    var newIngredient = new Ingredient { Name = ingredientModel.Name };
+                    await _ingredientService.AddAsync(newIngredient);
+                    ingredientId = newIngredient.Id;
+                }
+                
                 recipe.RecipeIngredients.Add(new RecipeIngredient
                 {
-                    IngredientId = existingIngredient.Id,
-                    Quantity = ingredient.Quantity,
-                    Unit = ingredient.Unit
+                    IngredientId = ingredientId,
+                    Quantity = ingredientModel.Quantity,
+                    Unit = ingredientModel.Unit
                 });
             }
+
+            await _recipeService.AddAsync(recipe);
+            return RedirectToAction("Recipes", "Recipe");
         }
 
-        await _recipeService.AddAsync(recipe);
-        return RedirectToAction("Index");
+        ViewBag.Categories = new SelectList(await _categoryService.GetAllAsync(), "Id", "Name");
+        ViewBag.Meals = new SelectList(await _mealService.GetAllAsync(), "Id", "Name");
+        return View(model);
     }
-
-    ViewBag.Categories = new SelectList(await _categoryService.GetAllAsync(), "Id", "Name");
-    ViewBag.Meals = new SelectList(await _mealService.GetAllAsync(), "Id", "Name");
-    ViewBag.Ingredients = new SelectList(await _ingredientService.GetAllAsync(), "Id", "Name");
-    return View(model);
-}
 
 }

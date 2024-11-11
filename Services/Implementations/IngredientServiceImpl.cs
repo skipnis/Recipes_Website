@@ -6,7 +6,15 @@ namespace WebCooking.Services.Implementations;
 
 public class IngredientServiceImpl : ServiceImpl<Ingredient>, IIngredientService
 {
-    public IngredientServiceImpl(IRepository<Ingredient> repository) : base(repository)
+    private readonly IIngredientRepository _ingredientRepository;
+
+    public IngredientServiceImpl(IIngredientRepository ingredientRepository) : base(ingredientRepository)
     {
+        _ingredientRepository = ingredientRepository;
+    }
+
+    public async Task<Ingredient?> GetByNameAsync(string name)
+    {
+        return await _ingredientRepository.GetByNameAsync(name);
     }
 }

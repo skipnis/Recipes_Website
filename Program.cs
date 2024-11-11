@@ -50,6 +50,7 @@ builder.Services.AddScoped<IUserRepository, UserRepositoryImpl>();
 builder.Services.AddScoped<IUserService, UserServiceImpl>();
 
 builder.Services.AddScoped<IRepository<Ingredient>, IngredientRepositoryImpl>();
+builder.Services.AddScoped<IIngredientRepository, IngredientRepositoryImpl>();
 builder.Services.AddScoped<IIngredientService, IngredientServiceImpl>();
 
 builder.Services.AddControllersWithViews();
