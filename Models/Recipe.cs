@@ -15,5 +15,6 @@ public class Recipe : BaseEnity
     public virtual Meal? Meal { get; set; }
     public virtual ICollection<Instruction>? Instructions { get; set; }
     public virtual ICollection<RecipeIngredient>? RecipeIngredients { get; set; }
-
+    
+    public virtual ICollection<FavouriteRecipe>? FavouriteRecipes { get; set; }
 }

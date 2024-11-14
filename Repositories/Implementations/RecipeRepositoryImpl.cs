@@ -35,4 +35,41 @@ public class RecipeRepositoryImpl : RepositoryImpl<Recipe>, IRecipeRepository
             .Where(r => r.CategoryId == categoryId) // Предполагается, что у вас есть поле CategoryId в Recipe
             .ToListAsync();
     }
+
+    public async Task AddToFavoritesAsync(string userId, long recipeId)
+    {
+        var favoriteRecipe = await _context.FavouriteRecipes
+            .FirstOrDefaultAsync(fr => fr.UserId == userId && fr.RecipeId == recipeId);
+
+        if (favoriteRecipe == null)
+        {
+            var newFavorite = new FavouriteRecipe
+            {
+                UserId = userId,
+                RecipeId = recipeId
+            };
+            _context.FavouriteRecipes.Add(newFavorite);
+            await _context.SaveChangesAsync();
+        }
+    }
+
+    public async Task RemoveFromFavoritesAsync(string userId, long recipeId)
+    {
+        var recipe = _context.FavouriteRecipes
+            .FirstOrDefault(fr => fr.UserId == userId && fr.RecipeId == recipeId);
+        
+        if (recipe != null)
+        {
+            _context.FavouriteRecipes.Remove(recipe);
+            await _context.SaveChangesAsync();
+        }
+    }
+
+    public async Task<IEnumerable<Recipe>> GetFavouriteRecipes(string userId)
+    {
+        return await _context.FavouriteRecipes
+            .Where(fr => fr.UserId == userId)
+            .Select(fr => fr.Recipe)
+            .ToListAsync();
+    }
 }

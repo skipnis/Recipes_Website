@@ -18,4 +18,19 @@ public class RecipeServiceImpl : ServiceImpl<Recipe>, IRecipeService
     {
         return await _recipeRepository.GetByCategoryAsync(categoryId);
     }
+
+    public async Task AddToFavoritesAsync(string userId, long recipeId)
+    {
+        await _recipeRepository.AddToFavoritesAsync(userId, recipeId);
+    }
+
+    public async Task RemoveFromFavouritesAsync(string userId, long recipeId)
+    { 
+        await _recipeRepository.RemoveFromFavoritesAsync(userId, recipeId);
+    }
+
+    public Task<IEnumerable<Recipe>> GetFavouriteRecipes(string userId)
+    {
+        return _recipeRepository.GetFavouriteRecipes(userId);
+    }
 }

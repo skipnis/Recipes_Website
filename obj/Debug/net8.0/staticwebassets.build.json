@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1kF3na4TADmrZXClcCx38JickY/h/7mRpdATZ41tcxw=",
+  "Hash": "SWqvYxtUxishawbhfeowvg3FeXlaFFJ+tnsEV4JNk3A=",
   "Source": "WebCooking",
   "BasePath": "_content/WebCooking",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/recipes/68079cca-55e0-4aee-b6c7-be2cae79d51d_pexels-n-voitkevich-6120219.jpg"
+    },
+    {
+      "Identity": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/6f6df5fe-be16-4bcc-92ba-c4ebd72cf183_daniel-herron-IRdLpqvHF5w-unsplash.jpg",
+      "SourceId": "WebCooking",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/",
+      "BasePath": "_content/WebCooking",
+      "RelativePath": "images/recipes/6f6df5fe-be16-4bcc-92ba-c4ebd72cf183_daniel-herron-IRdLpqvHF5w-unsplash.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/recipes/6f6df5fe-be16-4bcc-92ba-c4ebd72cf183_daniel-herron-IRdLpqvHF5w-unsplash.jpg"
     },
     {
       "Identity": "/Users/kipnisalex/RiderProjects/WebCooking/WebCooking/wwwroot/images/recipes/cheesecake_s_yagodami.jpg",

@@ -19,8 +19,14 @@
                 <img class="card-img-top" src="@recipe.ImagePath" alt="Card image cap">
             </div>
             <div class="card-body d-flex flex-column">
-                <h5 class="card-title">@recipe.Name</h5>
-                <a asp-controller="Recipe" asp-action="Details" asp-route-recipeId="@recipe.Id" class="btn btn-primary mt-auto">Информация</a>
+                <h5 class="card-title text-truncate">@recipe.Name</h5>
+                <div class="container-fluid p-0 d-flex flex-column">
+                    <a asp-controller="Recipe" asp-action="Details" asp-route-recipeId="@recipe.Id" class="btn btn-primary mt-auto">Информация</a>
+                    <form class="container-fluid p-0" asp-action="AddToFavorites" method="post">
+                        <input type="hidden" name="recipeId" value="@recipe.Id"/>
+                        <button class="w-100 btn btn-warning" type="submit">В избранное</button>
+                    </form>
+                </div>
             </div>
         </div>
     }

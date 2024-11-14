@@ -41,6 +41,12 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="User"  asp-action="Index">Management Dashboard</a>
                             </div>
                         }
+                        @if (User.IsInRole("User"))
+                        {
+                            <div class="ms-auto">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Recipe"  asp-action="Favourites">Favourite Recipes</a>
+                            </div>
+                        }
                         <div class="ms-auto">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Profile">Мой профиль</a>
                         </div>
