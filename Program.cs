@@ -66,7 +66,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var roleSeeder = scope.ServiceProvider.GetRequiredService<RoleSeeder>();
-    await roleSeeder.SeedRolesAsync(); // Асинхронный вызов
+    await roleSeeder.SeedRolesAsync();
 }
 if (!app.Environment.IsDevelopment())
 {
