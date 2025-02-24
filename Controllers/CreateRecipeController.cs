@@ -32,16 +32,14 @@ public class CreateRecipeController : Controller
         };
         return View(model);
     }
-
-    // POST: Recipe/Create
+    
     [HttpPost]
     public async Task<IActionResult> Create(RecipeViewModel model)
     {
         if (ModelState.IsValid)
         {
             string imagePath = null;
-
-            // Сохранение изображения рецепта
+            
             if (model.ImageFile != null)
             {
                 var uploadsFolder = Path.Combine("wwwroot", "images", "recipes");

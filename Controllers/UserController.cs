@@ -36,8 +36,7 @@ public class UserController : Controller
         };
         return View(model);
     }
-
-    // Добавление роли пользователю
+    
     [HttpPost]
     public async Task<IActionResult> AddRole(string userId, string roleName)
     {
@@ -48,13 +47,11 @@ public class UserController : Controller
         }
         catch (Exception ex)
         {
-            // обработка ошибок
             TempData["Error"] = ex.Message;
             return RedirectToAction("Details", new { userId });
         }
     }
-
-    // Удаление роли у пользователя
+    
     [HttpPost]
     public async Task<IActionResult> RemoveRole(string userId, string roleName)
     {
@@ -65,7 +62,6 @@ public class UserController : Controller
         }
         catch (Exception ex)
         {
-            // обработка ошибок
             TempData["Error"] = ex.Message;
             return RedirectToAction("Details", new { userId });
         }

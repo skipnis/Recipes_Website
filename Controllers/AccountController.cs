@@ -37,8 +37,8 @@ public class AccountController : Controller
                 {
                     var authProperties = new AuthenticationProperties
                     {
-                        IsPersistent = model.RememberMe, // Использует значение RememberMe из модели
-                        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30) // Время жизни cookies
+                        IsPersistent = model.RememberMe, 
+                        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30) 
                     };
                     await _signInManager.SignInAsync(user, authProperties);
 
