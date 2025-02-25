@@ -28,10 +28,10 @@ public class UserServiceImpl : ServiceImpl<User>, IUserService
 
     public async Task<IEnumerable<string>> GetUserRolesAsync(string userId)
     {
-        var user = await _userManager.FindByIdAsync(userId); // Получаем пользователя по ID
+        var user = await _userManager.FindByIdAsync(userId); 
         if (user == null)
         {
-            return new List<string>(); // Если пользователя нет, возвращаем пустой список
+            return new List<string>(); 
         }
 
         return await _userManager.GetRolesAsync(user);

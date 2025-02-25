@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebCooking")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+385084a0ba91d0b771ce2fb791f7e9d650df92c9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6368294090ddcd8d3a3d577f77ebfa48c4845cda")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebCooking")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebCooking")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
