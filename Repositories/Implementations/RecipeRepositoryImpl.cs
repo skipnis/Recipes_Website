@@ -32,7 +32,7 @@ public class RecipeRepositoryImpl : RepositoryImpl<Recipe>, IRecipeRepository
     public async Task<IEnumerable<Recipe>> GetByCategoryAsync(int categoryId)
     {
         return await _context.Recipes
-            .Where(r => r.CategoryId == categoryId) // Предполагается, что у вас есть поле CategoryId в Recipe
+            .Where(r => r.CategoryId == categoryId)
             .ToListAsync();
     }
 
